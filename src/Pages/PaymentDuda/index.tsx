@@ -11,7 +11,7 @@ import {
   HeaderHome,
   SelectedText,
 } from './styled'
-import { TableStudents } from './TableDataStudents'
+import { TableStudents } from './components/TableDataStudents'
 
 export const PaimentDuda = () => {
   const [paimentDuda, setPaimetDuda] = useState('Pendente')

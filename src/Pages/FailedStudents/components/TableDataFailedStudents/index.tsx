@@ -32,7 +32,7 @@ export const TableFailedStudents = () => {
     useState<DataStudentsProps[]>(listFailedStudents)
   const [listSelected, setListSelected] = useState<DataStudentsProps[]>([])
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (_event: unknown, newPage: number) => {
     setPage(newPage)
   }
 

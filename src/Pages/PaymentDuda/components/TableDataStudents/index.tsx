@@ -11,8 +11,8 @@ import {
 import { useState, ChangeEvent, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { DataStudentsProps } from '../../../contexts/DataSudentsContext'
-import { useDataStudent } from '../../../Hooks/useDataStudents'
+import { DataStudentsProps } from '../../../../contexts/DataSudentsContext'
+import { useDataStudent } from '../../../../Hooks/useDataStudents'
 import {
   ListRequerimentTable,
   TableContentList,
@@ -40,7 +40,7 @@ export const TableStudents = (paimentDuda: TableStudentsProps) => {
   >(filteredListSelectofDuda)
   const [listSelected, setListSelected] = useState<DataStudentsProps[]>([])
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (_event: unknown, newPage: number) => {
     setPage(newPage)
   }
 
