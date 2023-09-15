@@ -14,7 +14,7 @@ import {
 } from './styled'
 
 export const Home = () => {
-  const { dataListUsers, userDataLogin } = useUser()
+  const { userDataLogin } = useUser()
   return (
     <ContainerHome>
       <TitleText size="m" weight={600}>
