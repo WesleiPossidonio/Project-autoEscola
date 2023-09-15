@@ -20,45 +20,19 @@ import {
   TableRowContentList,
 } from './styled'
 
-interface TableStudentsProps {
-  paimentDuda?: string
-}
-
-export const TableStudents = (paimentDuda: TableStudentsProps) => {
-  const { dataListStudents, listSelectedCar, searchListStudent } =
+export const TableStudents = () => {
+  const { filteredListSelectofDuda, listSelectedCar, searchListStudent } =
     useDataStudent()
 
   const navigate = useNavigate()
 
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(10)
-  const [filteredListSelectofDuda, setFilteredListSelectofDuda] = useState<
-    DataStudentsProps[]
-  >([])
+
   const [searchListSelected, setSearchListSelected] = useState<
     DataStudentsProps[]
-  >(filteredListSelectofDuda)
+  >([])
   const [listSelected, setListSelected] = useState<DataStudentsProps[]>([])
-
-  const handleChangePage = (_event: unknown, newPage: number) => {
-    setPage(newPage)
-  }
-
-  const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(parseInt(event.target.value, 10))
-    setPage(0)
-  }
-
-  useEffect(() => {
-    const listPaymentDuda = dataListStudents.filter((list) => {
-      return (
-        list.payment_of_duda === paimentDuda &&
-        list.passed_the_test === 'Reprovado'
-      )
-    })
-
-    setFilteredListSelectofDuda(listPaymentDuda)
-  }, [dataListStudents, paimentDuda])
 
   useEffect(() => {
     if (searchListStudent) {
@@ -128,6 +102,15 @@ export const TableStudents = (paimentDuda: TableStudentsProps) => {
         break
     }
   }, [listSelectedCar, searchListSelected])
+
+  const handleChangePage = (_event: unknown, newPage: number) => {
+    setPage(newPage)
+  }
+
+  const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement>) => {
+    setRowsPerPage(parseInt(event.target.value, 10))
+    setPage(0)
+  }
 
   const handleSelectAList = (id: string) => {
     const curatedList = listSelected.filter((data) => data.id === id)

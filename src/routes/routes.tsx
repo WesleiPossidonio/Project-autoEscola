@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import { AboutStudent } from '../Pages/AboutStudent'
 import { AprovedStudentsPage } from '../Pages/ApprovedStudents'
+import { AuthorizedStudents } from '../Pages/AuthorizedStudents'
 import { FailedStudentsPage } from '../Pages/FailedStudents'
 import { CreatedStudents } from '../Pages/FormCreateStudent'
 import { Home } from '../Pages/Home'
@@ -20,6 +21,7 @@ export const Router = () => {
         <Route path="/alunos-reprovados" element={<FailedStudentsPage />} />
         <Route path="/sobre-o-aluno" element={<AboutStudent />} />
         <Route path="/pagamento-duda" element={<PaimentDuda />} />
+        <Route path="/alunos-autorizados" element={<AuthorizedStudents />} />
       </Route>
     </Routes>
   )

@@ -25,7 +25,7 @@ export const HeaderHome = styled.div`
 `
 
 interface HeaderHomeProps {
-  paimentDuda: string
+  listpaimentduda: string
 }
 
 export const SelectedText = styled.p<HeaderHomeProps>`
@@ -33,9 +33,10 @@ export const SelectedText = styled.p<HeaderHomeProps>`
   font-weight: 600;
   padding-bottom: 0.2rem;
 
-  border-bottom: ${({ theme, paimentDuda }) =>
-    (paimentDuda === 'Pendente' && `3px solid ${theme.colors['base-red']}`) ||
-    (paimentDuda === 'Pago' && `3px solid ${theme.colors['base-green']}`)};
+  border-bottom: ${({ theme, listpaimentduda }) =>
+    (listpaimentduda === 'Pendente' &&
+      `3px solid ${theme.colors['base-red']}`) ||
+    (listpaimentduda === 'Pago' && `3px solid ${theme.colors['base-green']}`)};
 
   cursor: pointer;
 `

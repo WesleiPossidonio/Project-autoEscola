@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import { Button } from '../../Components/Button'
 import { TitleText } from '../../Components/typography'
 import { FormCreatedStudents } from './components/formCreatedNewStudents'
@@ -8,6 +10,11 @@ import {
 } from './styled'
 
 export const CreatedStudents = () => {
+  const navigate = useNavigate()
+
+  const handleNavigateToHome = () => {
+    navigate('/')
+  }
   return (
     <ContainerCreatedStudents>
       <HeaderContainer>
@@ -15,7 +22,9 @@ export const CreatedStudents = () => {
           Autorizar Alunos
         </TitleText>
         <ContentButtons>
-          <Button>Voltar ao Inicio</Button>
+          <Button onClick={() => handleNavigateToHome()}>
+            Voltar ao Inicio
+          </Button>
         </ContentButtons>
       </HeaderContainer>
 

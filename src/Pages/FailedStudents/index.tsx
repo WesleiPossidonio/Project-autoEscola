@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import { InputSearch } from '../../Components/InputSearch'
 import { BasicSelect } from '../../Components/Selected'
 import { TableFailedStudents } from './components/TableDataFailedStudents'
@@ -10,6 +12,10 @@ import {
 } from './styled'
 
 export const FailedStudentsPage = () => {
+  const navigate = useNavigate()
+  const handleNavigateToHome = () => {
+    navigate('/')
+  }
   return (
     <ContainerHome>
       <HeaderHome>
@@ -19,7 +25,9 @@ export const FailedStudentsPage = () => {
 
         <ContentButtons>
           <BasicSelect />
-          <Button>Voltar ao Início</Button>
+          <Button onClick={() => handleNavigateToHome()}>
+            Voltar ao Início
+          </Button>
         </ContentButtons>
       </HeaderHome>
 

@@ -48,12 +48,14 @@ interface DataStudentsContextType {
   updateTestStudents: (data: UpdateDataTestStudents) => Promise<void>
   filteredSearchListStudent: (data: string) => void
   filterSelectedListCar: (data: string) => void
+  setFilteredListSelectofDuda: (data: DataStudentsProps[]) => void
   listStudentsWithDudaPaid: DataStudentsProps[]
   listStudentsWithDudaPendents: DataStudentsProps[]
   listFailedStudents: DataStudentsProps[]
   listApprovedStudents: DataStudentsProps[]
   listAuthorizedStudents: DataStudentsProps[]
   dataListStudents: DataStudentsProps[]
+  filteredListSelectofDuda: DataStudentsProps[]
   searchListStudent: string
   listSelectedCar: string
 }
@@ -90,6 +92,9 @@ export const DataStudentsProvider = ({
     DataStudentsProps[]
   >([])
 
+  const [filteredListSelectofDuda, setFilteredListSelectofDuda] =
+    useState<DataStudentsProps[]>(dataListStudents)
+
   const [searchListStudent, setSearchListStudent] = useState('')
   const [listSelectedCar, setListSelectedCar] = useState('')
 
@@ -98,11 +103,7 @@ export const DataStudentsProvider = ({
       try {
         const listStudents = await api.get('students')
         const { data } = listStudents
-        if (dataListStudents !== data) {
-          setDataListStudent(data)
-        } else {
-          return dataListStudents
-        }
+        setDataListStudent(data)
       } catch (error) {
         console.error(error)
       }
@@ -209,6 +210,7 @@ export const DataStudentsProvider = ({
         filteredSearchListStudent,
         filterSelectedListCar,
         updateTestStudents,
+        setFilteredListSelectofDuda,
         listStudentsWithDudaPaid,
         listStudentsWithDudaPendents,
         listFailedStudents,
@@ -217,6 +219,7 @@ export const DataStudentsProvider = ({
         dataListStudents,
         searchListStudent,
         listSelectedCar,
+        filteredListSelectofDuda,
       }}
     >
       {children}

@@ -1,8 +1,5 @@
-import { useNavigate } from 'react-router-dom'
-
 import { InputSearch } from '../../Components/InputSearch'
 import { BasicSelect } from '../../Components/Selected'
-import { TableApprovedStudents } from './components/TableDataAprovedStudents'
 import {
   Button,
   ContainerContent,
@@ -10,32 +7,25 @@ import {
   ContentButtons,
   HeaderHome,
 } from './styled'
+import { TableStudents } from './TableDataStudents'
 
-export const AprovedStudentsPage = () => {
-  const navigate = useNavigate()
-
-  const handleNavigateToHome = () => {
-    navigate('/')
-  }
-
+export const AuthorizedStudents = () => {
   return (
     <ContainerHome>
       <HeaderHome>
         <h1>
-          Lista de Alunos <br /> Aprovados
+          Lista de Alunos <br /> com provas Marcadas
         </h1>
 
         <ContentButtons>
           <BasicSelect />
-          <Button onClick={() => handleNavigateToHome()}>
-            Voltar ao Início
-          </Button>
+          <Button>Autorizar Alunos</Button>
         </ContentButtons>
       </HeaderHome>
 
       <ContainerContent>
         <InputSearch />
-        <TableApprovedStudents />
+        <TableStudents />
       </ContainerContent>
     </ContainerHome>
   )

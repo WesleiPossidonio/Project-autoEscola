@@ -11,8 +11,8 @@ import {
 import { useState, ChangeEvent, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { DataStudentsProps } from '../../../../contexts/DataSudentsContext'
-import { useDataStudent } from '../../../../Hooks/useDataStudents'
+import { DataStudentsProps } from '../../../contexts/DataSudentsContext'
+import { useDataStudent } from '../../../Hooks/useDataStudents'
 import {
   ListRequerimentTable,
   TableContentList,

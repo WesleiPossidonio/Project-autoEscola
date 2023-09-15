@@ -21,6 +21,8 @@ export interface ResponseDataUser {
   email: string
   name: string
   token: string
+  tel: string
+  cargo: string
 }
 
 interface CreaterUser {
@@ -42,6 +44,7 @@ interface UserContextType {
   handleLoginUser: (data: UserLoginProps) => Promise<void>
   updatePassword: (data: UpdatePasswordProps) => Promise<void>
   userDataLogin: ResponseDataUser
+  dataListUsers: ResponseDataUser[]
 }
 
 interface UserContextProviderProps {
@@ -55,6 +58,22 @@ export const UserContextProvider = ({ children }: UserContextProviderProps) => {
   const [userDataLogin, setUserDataLogin] = useState<ResponseDataUser>(
     {} as ResponseDataUser,
   )
+
+  const [dataListUsers, setDataListUsers] = useState<ResponseDataUser[]>([])
+
+  useEffect(() => {
+    const getListDataUsers = async () => {
+      try {
+        const listDataUser = await api.get('getUsers')
+        const { data } = listDataUser
+
+        setDataListUsers(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getListDataUsers()
+  }, [])
 
   const handleLoginUser = useCallback(
     async (data: UserLoginProps) => {
@@ -154,6 +173,7 @@ export const UserContextProvider = ({ children }: UserContextProviderProps) => {
         userDataLogin,
         handleCreateUser,
         updatePassword,
+        dataListUsers,
       }}
     >
       {children}

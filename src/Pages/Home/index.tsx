@@ -1,32 +1,66 @@
-import { InputSearch } from '../../Components/InputSearch'
-import { BasicSelect } from '../../Components/Selected'
-import { TableStudents } from './components/TableDataStudents'
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
+import { DateCalendar } from '@mui/x-date-pickers/DateCalendar'
+import { ptBR } from 'date-fns/locale'
+
+import { TextRegular, TitleText } from '../../Components/typography'
+import { useUser } from '../../Hooks/useUser'
 import {
-  Button,
-  ContainerContent,
+  ContainerData,
+  ContainerDataUser,
   ContainerHome,
-  ContentButtons,
-  HeaderHome,
+  ContainerLocalizationProvider,
+  ContentDataUser,
+  DataUserContainer,
 } from './styled'
 
 export const Home = () => {
+  const { dataListUsers, userDataLogin } = useUser()
   return (
     <ContainerHome>
-      <HeaderHome>
-        <h1>
-          Lista de Alunos <br /> com provas Marcadas
-        </h1>
+      <TitleText size="m" weight={600}>
+        Dados do Usuário
+      </TitleText>
 
-        <ContentButtons>
-          <BasicSelect />
-          <Button>Autorizar Alunos</Button>
-        </ContentButtons>
-      </HeaderHome>
+      <ContainerData>
+        <ContainerDataUser>
+          <ContentDataUser>
+            <TitleText>Meus Dados</TitleText>
 
-      <ContainerContent>
-        <InputSearch />
-        <TableStudents />
-      </ContainerContent>
+            <DataUserContainer>
+              <div>
+                <TextRegular weight={600}>Nome</TextRegular>
+                <TitleText>{userDataLogin.name}</TitleText>
+              </div>
+
+              <div>
+                <TextRegular weight={600}>E-Mail</TextRegular>
+                <TitleText>{userDataLogin.email}</TitleText>
+              </div>
+            </DataUserContainer>
+          </ContentDataUser>
+
+          <ContentDataUser>
+            <DataUserContainer>
+              <div>
+                <TextRegular weight={600}>Cargo</TextRegular>
+                <TitleText>{userDataLogin.cargo}</TitleText>
+              </div>
+
+              <div>
+                <TextRegular weight={600}>Tel</TextRegular>
+                <TitleText>{userDataLogin.tel}</TitleText>
+              </div>
+            </DataUserContainer>
+          </ContentDataUser>
+        </ContainerDataUser>
+
+        <ContainerLocalizationProvider
+          adapterLocale={ptBR}
+          dateAdapter={AdapterDateFns}
+        >
+          <DateCalendar />
+        </ContainerLocalizationProvider>
+      </ContainerData>
     </ContainerHome>
   )
 }
