@@ -1,6 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
 import * as zod from 'zod'
 
 import LogoMotocar from '../../assets/LOGO_MOTOCAR.png'
@@ -11,27 +10,39 @@ import {
   Container,
   Content,
   ContentInput,
-  ContentLinks,
   Form,
   HeaderLogin,
   Input,
-  LinkPassword,
-  LinkPasswordContent,
 } from './styled'
 
-const confirmOrderLoginValidationSchema = zod.object({
-  email: zod.string().email('Digite o seu E-mail Válido'),
-  password: zod.string().min(6, 'Informe a Senha').max(6, 'Digite 6 digitos'),
-})
+const confirmOrderLoginValidationSchema = zod
+  .object({
+    email: zod
+      .string()
+      .nonempty('O E-mail é Obrigatório')
+      .email('Digite o seu E-mail Válido'),
+    password: zod
+      .string()
+      .min(6, 'A senha deve conter 6 digitos')
+      .max(6, 'A senha deve conter 6 digitos')
+      .nonempty('Digite sua Senha'),
+    confirmPassword: zod
+      .string()
+      .min(6, 'Confirme sua senha')
+      .max(6, 'Confirme sua senha')
+      .nonempty('Confirme sua Senha'),
+  })
+  .refine(({ password, confirmPassword }) => password === confirmPassword, {
+    message: 'As senhas não estão iguais, Digite Novamente',
+    path: ['confirmPassword'],
+  })
 
 export type OrderData = zod.infer<typeof confirmOrderLoginValidationSchema>
 
 type ConfirmOrderFormLoginData = OrderData
 
-export const Login = () => {
-  const { handleLoginUser } = useUser()
-
-  const navigate = useNavigate()
+export const ConfirmPassowrd = () => {
+  const { updatePassword } = useUser()
 
   const {
     register,
@@ -43,13 +54,9 @@ export const Login = () => {
   })
 
   const handleConfirmOrder = (data: ConfirmOrderFormLoginData) => {
-    handleLoginUser(data)
+    updatePassword(data)
 
     reset()
-  }
-
-  const handleNavigateUpdatePassword = () => {
-    navigate('/atualizar-senha')
   }
 
   return (
@@ -57,15 +64,15 @@ export const Login = () => {
       <HeaderLogin src={LogoMotocar} />
 
       <Content>
-        <TitleText color="text-login" size="l">
-          Fazer Login
+        <TitleText color="text" size="l">
+          Atualizar Senha
         </TitleText>
 
         <Form onSubmit={handleSubmit(handleConfirmOrder)}>
           <ContentInput>
             <Input
               type="text"
-              placeholder="E-mail"
+              placeholder="Digite o seu E-mail de Acesso"
               {...register('email')}
               error={errors.email?.message}
             />
@@ -77,7 +84,7 @@ export const Login = () => {
           <ContentInput>
             <Input
               type="password"
-              placeholder="Senha"
+              placeholder="Digite sua nova Senha"
               {...register('password')}
               error={errors.password?.message}
             />
@@ -86,17 +93,20 @@ export const Login = () => {
             </TextRegular>
           </ContentInput>
 
-          <Button type="submit">Acessar</Button>
-        </Form>
+          <ContentInput>
+            <Input
+              type="password"
+              placeholder="Confirme sua senha"
+              {...register('confirmPassword')}
+              error={errors.confirmPassword?.message}
+            />
+            <TextRegular color="red" weight={700}>
+              {errors.confirmPassword?.message}
+            </TextRegular>
+          </ContentInput>
 
-        <ContentLinks>
-          <LinkPasswordContent>
-            <TextRegular color="text-login">Esqueci a Senha?</TextRegular>
-            <LinkPassword onClick={() => handleNavigateUpdatePassword()}>
-              Clicar Aqui
-            </LinkPassword>
-          </LinkPasswordContent>
-        </ContentLinks>
+          <Button type="submit">Atualizar Senha</Button>
+        </Form>
       </Content>
     </Container>
   )

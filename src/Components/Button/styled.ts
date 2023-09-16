@@ -30,13 +30,4 @@ export const ButtonContainer = styled.button`
   &:active {
     opacity: 0.5;
   }
-
-  @media (max-width: 600px) {
-    font-size: 0.8rem;
-    padding: 0.9rem;
-
-    svg {
-      width: 2rem;
-    }
-  }
 `

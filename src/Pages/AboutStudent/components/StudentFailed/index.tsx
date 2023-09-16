@@ -9,20 +9,20 @@ import { TextRegular, TitleText } from '../../../../Components/typography'
 import { DataStudentsProps } from '../../../../contexts/DataSudentsContext'
 import { useDataStudent } from '../../../../Hooks/useDataStudents'
 import {
-  ContainerAuthorizedStudent,
-  ContentButton,
-  ContainerStudent,
-  HeaderContent,
-  ContainerForm,
-  ContentForm,
-  InputAboutStudent,
-  ContainerInput,
-  ContentInput,
-  ContentDataStudent,
-  ContainerDataStudent,
   CartDataStudent,
+  ContainerDataStudent,
+  ContainerForm,
+  ContainerInput,
+  ContainerPage,
+  ContainerStudent,
+  ContentButton,
+  ContentDataStudent,
+  ContentForm,
+  ContentInput,
+  HeaderContainer,
   ImageError,
-} from './styled'
+  InputAboutStudent,
+} from '../../styled'
 
 interface StudentsDataProps {
   dataStudent: DataStudentsProps
@@ -69,16 +69,17 @@ export const StudentFailed = ({ dataStudent }: StudentsDataProps) => {
   }
 
   return (
-    <ContainerAuthorizedStudent>
+    <ContainerPage>
       <TitleText size="l" weight={700}>
         Sobre o Aluno
       </TitleText>
-      <HeaderContent>
+
+      <HeaderContainer>
         <ContentButton>
           <Button>Voltar</Button>
           <Button>Voltar ao Inicio</Button>
         </ContentButton>
-      </HeaderContent>
+      </HeaderContainer>
 
       <ContainerStudent>
         <ContentDataStudent>
@@ -105,8 +106,8 @@ export const StudentFailed = ({ dataStudent }: StudentsDataProps) => {
               </div>
             </CartDataStudent>
 
-            {dataStudent?.class_indication !== null &&
-            dataStudent?.comments !== null ? (
+            {dataStudent?.class_indication !== '' &&
+            dataStudent?.comments !== '' ? (
               <CartDataStudent>
                 <div>
                   <TitleText size="m" weight={700}>
@@ -234,6 +235,6 @@ export const StudentFailed = ({ dataStudent }: StudentsDataProps) => {
           <Button type="submit">Enviar</Button>
         </ContainerForm>
       </ContainerStudent>
-    </ContainerAuthorizedStudent>
+    </ContainerPage>
   )
 }

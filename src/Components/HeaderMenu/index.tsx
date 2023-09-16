@@ -5,6 +5,7 @@ import {
   XCircle,
   CheckCircle,
   CheckSquareOffset,
+  UserFocus,
 } from '@phosphor-icons/react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useState } from 'react'
@@ -22,11 +23,12 @@ export const HeaderMenu = () => {
 
   const handleNavigatePages = (data: string) => {
     setBgMenu(data)
-    data === 'studentsAuthorized' && navigate('/')
+    data === 'studentsAuthorized' && navigate('/alunos-autorizados')
     data === 'authorizationToTestForm' && navigate('/autorizar-alunos')
     data === 'approvedStudents' && navigate('/alunos-aprovados')
     data === 'failedStudents' && navigate('/alunos-reprovados')
     data === 'dudaPendents' && navigate('/pagamento-duda')
+    data === 'MyData' && navigate('/')
   }
 
   return (
@@ -49,6 +51,16 @@ export const HeaderMenu = () => {
       )}
 
       <LinkMenu
+        onClick={() => handleNavigatePages('MyData')}
+        bgMenu={bgMenu === 'MyData' ? 'active' : ''}
+      >
+        <UserFocus size={49} weight="bold" />
+        <p>
+          Meus <br /> Dados
+        </p>
+      </LinkMenu>
+
+      <LinkMenu
         onClick={() => handleNavigatePages('studentsAuthorized')}
         bgMenu={bgMenu === 'studentsAuthorized' ? 'active' : ''}
       >
@@ -63,7 +75,7 @@ export const HeaderMenu = () => {
       >
         <Student size={46} weight="fill" />
         <p>
-          Autorização <br /> para Prova
+          Autorizar <br /> para Prova
         </p>
       </LinkMenu>
       <LinkMenu

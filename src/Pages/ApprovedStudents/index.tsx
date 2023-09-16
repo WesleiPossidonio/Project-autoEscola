@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { InputSearch } from '../../Components/InputSearch'
 import { BasicSelect } from '../../Components/Selected'
+import { TitleText } from '../../Components/typography'
 import { TableApprovedStudents } from './components/TableDataAprovedStudents'
 import {
   Button,
@@ -20,11 +21,10 @@ export const AprovedStudentsPage = () => {
 
   return (
     <ContainerHome>
+      <TitleText size="m" weight={600}>
+        Lista de Alunos <br /> Aprovados
+      </TitleText>
       <HeaderHome>
-        <h1>
-          Lista de Alunos <br /> Aprovados
-        </h1>
-
         <ContentButtons>
           <BasicSelect />
           <Button onClick={() => handleNavigateToHome()}>

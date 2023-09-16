@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { AboutStudent } from '../Pages/AboutStudent'
 import { AprovedStudentsPage } from '../Pages/ApprovedStudents'
 import { AuthorizedStudents } from '../Pages/AuthorizedStudents'
+import { ConfirmPassowrd } from '../Pages/ConfirmPassword'
 import { FailedStudentsPage } from '../Pages/FailedStudents'
 import { CreatedStudents } from '../Pages/FormCreateStudent'
 import { Home } from '../Pages/Home'
@@ -14,6 +15,8 @@ export const Router = () => {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route path="/atualizar-senha" element={<ConfirmPassowrd />} />
+
       <Route path="/" element={<PrivateRoutes />}>
         <Route path="/" element={<Home />} />
         <Route path="/autorizar-alunos" element={<CreatedStudents />} />

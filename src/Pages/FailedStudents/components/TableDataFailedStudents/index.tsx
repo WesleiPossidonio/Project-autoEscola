@@ -27,7 +27,7 @@ export const TableFailedStudents = () => {
   const navigate = useNavigate()
 
   const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(10)
+  const [rowsPerPage, setRowsPerPage] = useState(5)
   const [searchListSelected, setSearchListSelected] =
     useState<DataStudentsProps[]>(listFailedStudents)
   const [listSelected, setListSelected] = useState<DataStudentsProps[]>([])
@@ -37,7 +37,7 @@ export const TableFailedStudents = () => {
   }
 
   const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(parseInt(event.target.value, 10))
+    setRowsPerPage(parseInt(event.target.value, 5))
     setPage(0)
   }
 

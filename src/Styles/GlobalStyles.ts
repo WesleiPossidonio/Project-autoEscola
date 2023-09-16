@@ -10,4 +10,10 @@ export const GlobalStyled = createGlobalStyle`
 
     font-family: 'Montserrat', sans-serif;
 }
+
+html {
+    @media (max-width: 1024px) {
+    font-size: 87.5%;
+  }
+}
 `

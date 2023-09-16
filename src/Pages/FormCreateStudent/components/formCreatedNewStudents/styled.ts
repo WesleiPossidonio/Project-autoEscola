@@ -19,6 +19,12 @@ export const Form = styled.form`
 
     font-size: 1.2rem;
   }
+
+  @media (max-width: 1023px) {
+    button {
+      margin-left: 0;
+    }
+  }
 `
 
 export const ContainerInput = styled.div`
@@ -38,6 +44,24 @@ export const ContainerInput = styled.div`
     align-items: center;
     justify-content: center;
     gap: 2rem;
+  }
+
+  @media (max-width: 1023px) {
+    padding: 0.5rem 0;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    > div {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
   }
 `
 

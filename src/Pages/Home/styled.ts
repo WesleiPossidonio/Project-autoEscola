@@ -18,10 +18,15 @@ export const ContainerHome = styled.section`
   > h1 {
     margin-bottom: 2rem;
   }
+
+  @media (max-width: 1023px) {
+    width: 100%;
+    padding: 2rem;
+  }
 `
 
 export const ContainerData = styled.div`
-  width: 100;
+  width: 100%;
 
   display: flex;
   justify-content: center;
@@ -35,6 +40,10 @@ export const ContainerDataUser = styled.div`
   align-items: center;
   justify-content: center;
   gap: 2rem;
+
+  @media (max-width: 1023px) {
+    width: 100%;
+  }
 `
 
 export const ContentDataUser = styled.div`
@@ -53,6 +62,15 @@ export const ContentDataUser = styled.div`
   box-shadow: -5px 0px 31px 0px rgba(0, 0, 0, 0.1);
 
   background-color: ${({ theme }) => theme.colors['bg-home']};
+
+  @media (max-width: 1288px) {
+    width: min(23rem, 35rem);
+    padding: 1rem;
+  }
+
+  @media (max-width: 1023px) {
+    width: 100%;
+  }
 `
 
 export const DataUserContainer = styled.div`
@@ -61,6 +79,49 @@ export const DataUserContainer = styled.div`
   justify-content: space-around;
 
   div {
+  }
+
+  @media (max-width: 1288px) {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 1023px) {
+    justify-content: space-around;
+  }
+
+  @media (max-width: 725px) {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    justify-content: space-around;
+  }
+
+  @media (max-width: 400px) {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+`
+
+export const ContainerCalendar = styled.div`
+  > div {
+    background-color: ${({ theme }) => theme.colors['bg-home']};
+
+    width: 21.875rem;
+    height: 23.125rem;
+
+    border-radius: 10px;
+
+    box-shadow: -5px 0px 31px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 640px) {
+    display: none;
   }
 `
 export const ContainerLocalizationProvider = muiStyled(LocalizationProvider)({

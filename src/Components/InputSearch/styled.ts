@@ -8,6 +8,10 @@ export const Form = styled.form`
   justify-content: center;
   gap: 1rem;
   margin-bottom: 2.5rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `
 
 export const Input = styled.input`
@@ -19,7 +23,7 @@ export const Input = styled.input`
 
   padding: 1.5rem;
 
-  background-color: ${({ theme }) => theme.colors['bg-header']};
+  background-color: ${({ theme }) => theme.colors['bg-home']};
   color: #000;
 
   font-size: 1rem;

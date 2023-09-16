@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { Button } from '../../Components/Button'
 import { InputSearch } from '../../Components/InputSearch'
 import { BasicSelect } from '../../Components/Selected'
 import { TitleText } from '../../Components/typography'
 import { useDataStudent } from '../../Hooks/useDataStudents'
 import { TableStudents } from './components/TableDataStudents'
 import {
+  Button,
   ContainerContent,
   ContainerHome,
   ContentButtons,
+  ContentSelect,
   HeaderHome,
   SelectedText,
 } from './styled'
@@ -55,18 +56,21 @@ export const PaimentDuda = () => {
         Lista de Duda dos Alunos
       </TitleText>
       <HeaderHome>
-        <SelectedText
-          listpaimentduda={listPaimentDuda === 'Pago' ? 'Pago' : ''}
-          onClick={() => handleStatePaimentDuda('Pago')}
-        >
-          Duda Pago
-        </SelectedText>
-        <SelectedText
-          listpaimentduda={listPaimentDuda === 'Pendente' ? 'Pendente' : ''}
-          onClick={() => handleStatePaimentDuda('Pendente')}
-        >
-          Duda Pendente
-        </SelectedText>
+        <ContentSelect>
+          <SelectedText
+            listpaimentduda={listPaimentDuda === 'Pago' ? 'Pago' : ''}
+            onClick={() => handleStatePaimentDuda('Pago')}
+          >
+            Duda Pago
+          </SelectedText>
+          <SelectedText
+            listpaimentduda={listPaimentDuda === 'Pendente' ? 'Pendente' : ''}
+            onClick={() => handleStatePaimentDuda('Pendente')}
+          >
+            Duda <br /> Pendente
+          </SelectedText>
+        </ContentSelect>
+
         <ContentButtons>
           <BasicSelect />
           <Button onClick={() => handleNavigateToHome()}>

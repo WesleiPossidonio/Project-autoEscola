@@ -140,21 +140,11 @@ export const UserContextProvider = ({ children }: UserContextProviderProps) => {
       const { email, password } = data
 
       try {
-        const response = await toast.promise(
-          api.post('confirmMail', { email, password }),
-          {
-            pending: 'Verificando seus dados',
-            success: 'Email Encontrado!',
-            error: 'E-mail não encontrado digite novamente 🤯',
-          },
-        )
-        const { data } = response
-        await localStorage.setItem(
-          'autoEscola:UserConfirmEmail',
-          JSON.stringify(data),
-        )
-
-        setUserDataLogin(data)
+        await toast.promise(api.post('update-password', { email, password }), {
+          pending: 'Verificando seus dados',
+          success: 'E-mail Encontrado! Senha Atualizada!',
+          error: 'E-mail não encontrado digite novamente 🤯',
+        })
 
         setTimeout(() => {
           navigate('/')

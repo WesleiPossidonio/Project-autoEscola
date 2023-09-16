@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import BgImage from '../../assets/ImgLogin-2.jpg'
-
 export const Container = styled.section`
   width: 100%;
   height: 100vh;
@@ -12,9 +10,7 @@ export const Container = styled.section`
   justify-content: center;
   gap: 8rem;
 
-  background-image: url(${BgImage});
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: ${({ theme }) => theme.colors['bg-main']};
 `
 
 export const HeaderLogin = styled.img`
@@ -33,12 +29,13 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: ${({ theme }) => theme.colors['bg-home']};
 
   padding: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
+  border: none;
+  border-radius: 10px;
+
+  box-shadow: -5px 0px 31px 0px rgba(0, 0, 0, 0.1);
 `
 
 export const TitleLogin = styled.h1`
@@ -81,15 +78,15 @@ export const Input = styled.input<InputProps>`
   border-bottom: ${({ error, theme }) =>
     error
       ? `2px solid ${theme.colors['base-red']}`
-      : '2px solid rgba(255, 255, 255, 0.3)'};
+      : `2px solid ${theme.colors['base-text']}`};
 
   padding: 0.5rem;
 
   font-size: 1rem;
-  color: #fff;
+  color: ${({ theme }) => theme.colors['base-text']};
 
   &::placeholder {
-    color: #fff;
+    color: ${({ theme }) => theme.colors['base-text']};
   }
 
   &:focus {
@@ -99,7 +96,7 @@ export const Input = styled.input<InputProps>`
 
 export const Label = styled.label`
   font-size: 0.854rem;
-  color: #fff;
+  color: ${({ theme }) => theme.colors['base-text']};
 `
 
 export const Button = styled.button`

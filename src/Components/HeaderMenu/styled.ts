@@ -17,6 +17,10 @@ export const ContainerMenu = styled.div`
   padding-top: 4rem;
 
   background-color: ${({ theme }) => theme.colors['bg-home']};
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
 `
 
 interface LinkMenuProps {
@@ -58,6 +62,25 @@ export const LinkMenu = styled.div<LinkMenuProps>`
 
     > svg {
       color: ${({ theme }) => theme.colors['base-green']};
+    }
+  }
+
+  @media (max-width: 1220px) {
+    width: 100%;
+
+    > p {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    > svg {
+      font-size: 0.5rem;
+    }
+  }
+
+  @media (max-width: 1050px) {
+    > svg {
+      display: none;
     }
   }
 `

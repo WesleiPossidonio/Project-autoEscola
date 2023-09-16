@@ -7,7 +7,7 @@ import { StudentAproved } from './components/StudentAproved'
 import { StudentDudaPaind } from './components/StudentDudaPaind'
 import { StudentDudaPending } from './components/StudentDudaPending'
 import { StudentFailed } from './components/StudentFailed'
-import { ContainerAboutStudent } from './styled'
+import { ContainerPage } from './styled'
 
 interface LocationProps {
   state: DataStudentsProps
@@ -46,14 +46,14 @@ export const AboutStudent = () => {
         setStudentDudaPaid(state)
       }
 
-      if (state.payment_of_duda === 'Pendent') {
+      if (state.payment_of_duda === 'Pendente') {
         setStudentDudaPending(state)
       }
     }
   }, [state])
 
   return (
-    <ContainerAboutStudent>
+    <ContainerPage>
       {(authorizedStudent && (
         <AuthorizedStudent dataStudent={authorizedStudent} />
       )) ||
@@ -65,6 +65,6 @@ export const AboutStudent = () => {
         (studentDudaPending && (
           <StudentDudaPending dataStudent={studentDudaPending} />
         ))}
-    </ContainerAboutStudent>
+    </ContainerPage>
   )
 }

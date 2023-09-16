@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as Dialog from '@radix-ui/react-dialog'
 import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
+import { Dispatch, SetStateAction } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import * as zod from 'zod'
 
@@ -29,7 +30,11 @@ const createUserFormSchema = zod.object({
 
 type CreateUserFormInputs = zod.infer<typeof createUserFormSchema>
 
-export const CreateUserModal = () => {
+interface CreateUserModalProps {
+  setDisplayMenu?: Dispatch<SetStateAction<string>>
+}
+
+export const CreateUserModal = ({ setDisplayMenu }: CreateUserModalProps) => {
   const { handleCreateUser } = useUser()
 
   const {
@@ -63,13 +68,17 @@ export const CreateUserModal = () => {
     reset()
   }
 
+  const handledisplayMenu = (data: string) => {
+    setDisplayMenu && setDisplayMenu(data)
+  }
+
   return (
     <Dialog.Portal>
       <Overlay />
       <Content>
         <Dialog.Title>Cadastrar Usuário</Dialog.Title>
         <CloseButton>
-          <X size={24} />
+          <X size={24} onClick={() => handledisplayMenu('')} />
         </CloseButton>
         <Form onSubmit={handleSubmit(handleCreateNewUser)}>
           <div>

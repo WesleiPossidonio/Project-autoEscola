@@ -98,19 +98,19 @@ export const DataStudentsProvider = ({
   const [searchListStudent, setSearchListStudent] = useState('')
   const [listSelectedCar, setListSelectedCar] = useState('')
 
-  useEffect(() => {
-    const getListStudents = async () => {
-      try {
-        const listStudents = await api.get('students')
-        const { data } = listStudents
-        setDataListStudent(data)
-      } catch (error) {
-        console.error(error)
-      }
+  const getListStudents = async () => {
+    try {
+      const listStudents = await api.get('students')
+      const { data } = listStudents
+      setDataListStudent(data)
+    } catch (error) {
+      console.error(error)
     }
+  }
 
+  useEffect(() => {
     getListStudents()
-  }, [dataListStudents])
+  }, [])
 
   useEffect(() => {
     const filteredListStudents = () => {

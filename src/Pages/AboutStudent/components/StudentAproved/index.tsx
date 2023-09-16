@@ -2,16 +2,16 @@ import ImgError from '../../../../assets/imageError.svg'
 import { Button } from '../../../../Components/Button'
 import { TextRegular, TitleText } from '../../../../Components/typography'
 import { DataStudentsProps } from '../../../../contexts/DataSudentsContext'
-import { ContainerDataStudent } from '../AboutStudent/styled'
 import {
   CartDataStudent,
-  ContainerAuthorizedStudent,
+  ContainerPage,
   ContainerStudent,
   ContentButton,
   ContentDataStudent,
-  HeaderContent,
+  HeaderContainer,
+  ContainerDataStudent,
   ImageError,
-} from './styled'
+} from '../../styled'
 
 interface StudentsDataProps {
   dataStudent?: DataStudentsProps
@@ -19,16 +19,16 @@ interface StudentsDataProps {
 
 export const StudentAproved = ({ dataStudent }: StudentsDataProps) => {
   return (
-    <ContainerAuthorizedStudent>
+    <ContainerPage>
       <TitleText size="l" weight={700}>
         Sobre o Aluno
       </TitleText>
-      <HeaderContent>
+      <HeaderContainer>
         <ContentButton>
           <Button>Voltar</Button>
           <Button>Voltar ao Inicio</Button>
         </ContentButton>
-      </HeaderContent>
+      </HeaderContainer>
 
       <ContainerStudent>
         <ContentDataStudent>
@@ -125,6 +125,6 @@ export const StudentAproved = ({ dataStudent }: StudentsDataProps) => {
           </CartDataStudent>
         </ContentDataStudent>
       </ContainerStudent>
-    </ContainerAuthorizedStudent>
+    </ContainerPage>
   )
 }

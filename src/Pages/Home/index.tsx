@@ -4,7 +4,9 @@ import { ptBR } from 'date-fns/locale'
 
 import { TextRegular, TitleText } from '../../Components/typography'
 import { useUser } from '../../Hooks/useUser'
+import { TableDataUsers } from './components/TableDataUsers'
 import {
+  ContainerCalendar,
   ContainerData,
   ContainerDataUser,
   ContainerHome,
@@ -24,17 +26,21 @@ export const Home = () => {
       <ContainerData>
         <ContainerDataUser>
           <ContentDataUser>
-            <TitleText>Meus Dados</TitleText>
+            <TitleText weight={600}>Meus Dados</TitleText>
 
             <DataUserContainer>
               <div>
                 <TextRegular weight={600}>Nome</TextRegular>
-                <TitleText>{userDataLogin.name}</TitleText>
+                <TitleText size="sm" weight={600}>
+                  {userDataLogin.name}
+                </TitleText>
               </div>
 
               <div>
                 <TextRegular weight={600}>E-Mail</TextRegular>
-                <TitleText>{userDataLogin.email}</TitleText>
+                <TitleText size="sm" weight={600}>
+                  {userDataLogin.email}
+                </TitleText>
               </div>
             </DataUserContainer>
           </ContentDataUser>
@@ -43,24 +49,32 @@ export const Home = () => {
             <DataUserContainer>
               <div>
                 <TextRegular weight={600}>Cargo</TextRegular>
-                <TitleText>{userDataLogin.cargo}</TitleText>
+                <TitleText size="sm" weight={600}>
+                  {userDataLogin.cargo}
+                </TitleText>
               </div>
 
               <div>
                 <TextRegular weight={600}>Tel</TextRegular>
-                <TitleText>{userDataLogin.tel}</TitleText>
+                <TitleText size="sm" weight={600}>
+                  {userDataLogin.tel}
+                </TitleText>
               </div>
             </DataUserContainer>
           </ContentDataUser>
         </ContainerDataUser>
 
-        <ContainerLocalizationProvider
-          adapterLocale={ptBR}
-          dateAdapter={AdapterDateFns}
-        >
-          <DateCalendar />
-        </ContainerLocalizationProvider>
+        <ContainerCalendar>
+          <ContainerLocalizationProvider
+            adapterLocale={ptBR}
+            dateAdapter={AdapterDateFns}
+          >
+            <DateCalendar />
+          </ContainerLocalizationProvider>
+        </ContainerCalendar>
       </ContainerData>
+
+      <TableDataUsers />
     </ContainerHome>
   )
 }
