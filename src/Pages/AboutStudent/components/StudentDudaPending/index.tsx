@@ -231,7 +231,9 @@ export const StudentDudaPending = ({ dataStudent }: StudentsDataProps) => {
             </ContentInput>
           </ContentForm>
 
-          <Button type="submit">Enviar</Button>
+          <Button type="submit" id="submit">
+            Enviar
+          </Button>
         </ContainerForm>
       </ContainerStudent>
     </ContainerPage>

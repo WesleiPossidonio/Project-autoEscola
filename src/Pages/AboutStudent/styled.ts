@@ -233,9 +233,13 @@ export const ContainerForm = styled.form`
   }
 
   @media (max-width: 767px) {
-    button {
+    #submit {
       margin-top: 2rem;
       width: 100%;
+    }
+
+    h1 {
+      font-size: 1.2rem;
     }
   }
 `
@@ -245,6 +249,12 @@ export const ContentInput = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 0.5rem;
+
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 1.1rem;
+    }
+  }
 `
 export const ContainerInput = styled(RadioGroup.Root)`
   display: flex;
