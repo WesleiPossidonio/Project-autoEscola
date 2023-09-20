@@ -8,18 +8,20 @@ import {
   UserFocus,
 } from '@phosphor-icons/react'
 import * as Dialog from '@radix-ui/react-dialog'
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { useUser } from '../../Hooks/useUser'
 import { CreateUserModal } from '../CreateUserModal'
+import { TextRegular } from '../typography'
 import { ContainerMenu, LinkMenu } from './styled'
 
 interface MenuProps {
   menuIsVisible: boolean
+  setMenuIsVisible: Dispatch<SetStateAction<boolean>>
 }
 
-export const MenuMobile = ({ menuIsVisible }: MenuProps) => {
+export const MenuMobile = ({ menuIsVisible, setMenuIsVisible }: MenuProps) => {
   const [bgMenu, setBgMenu] = useState('')
   const [displayMenu, setDisplayMenu] = useState('')
 
@@ -41,6 +43,8 @@ export const MenuMobile = ({ menuIsVisible }: MenuProps) => {
     data === 'MyData' && navigate('/')
 
     data === 'NewUser' && setDisplayMenu('NewUser')
+
+    setMenuIsVisible(false)
   }
 
   return (
@@ -53,10 +57,10 @@ export const MenuMobile = ({ menuIsVisible }: MenuProps) => {
                 onClick={() => handleNavigatePages('NewUser')}
                 bgMenu={bgMenu === 'NewUser' ? 'active' : ''}
               >
-                <User size={45} weight="bold" />
-                <p>
+                <User size={30} weight="bold" />
+                <TextRegular color="text" weight={700}>
                   Cadastrar <br /> Novo Usuário
-                </p>
+                </TextRegular>
               </LinkMenu>
             </Dialog.Trigger>
             <CreateUserModal setDisplayMenu={setDisplayMenu} />
@@ -67,57 +71,57 @@ export const MenuMobile = ({ menuIsVisible }: MenuProps) => {
           onClick={() => handleNavigatePages('MyData')}
           bgMenu={bgMenu === 'MyData' ? 'active' : ''}
         >
-          <UserFocus size={49} weight="bold" />
-          <p>
+          <UserFocus size={30} weight="bold" />
+          <TextRegular color="text" weight={700}>
             Meus <br /> Dados
-          </p>
+          </TextRegular>
         </LinkMenu>
 
         <LinkMenu
           onClick={() => handleNavigatePages('studentsAuthorized')}
           bgMenu={bgMenu === 'studentsAuthorized' ? 'active' : ''}
         >
-          <UserGear size={49} weight="bold" />
-          <p>
+          <UserGear size={30} weight="bold" />
+          <TextRegular color="text" weight={700}>
             Alunos <br /> Autorizados
-          </p>
+          </TextRegular>
         </LinkMenu>
         <LinkMenu
           onClick={() => handleNavigatePages('authorizationToTestForm')}
           bgMenu={bgMenu === 'authorizationToTestForm' ? 'active' : ''}
         >
-          <Student size={46} weight="fill" />
-          <p>
+          <Student size={30} weight="fill" />
+          <TextRegular color="text" weight={700}>
             Autorizar
             <br /> para Prova
-          </p>
+          </TextRegular>
         </LinkMenu>
         <LinkMenu
           onClick={() => handleNavigatePages('approvedStudents')}
           bgMenu={bgMenu === 'approvedStudents' ? 'active' : ''}
         >
-          <CheckCircle size={45} weight="bold" />
-          <p>
+          <CheckCircle size={30} weight="bold" />
+          <TextRegular color="text" weight={700}>
             Alunos <br /> Aprovados
-          </p>
+          </TextRegular>
         </LinkMenu>
         <LinkMenu
           onClick={() => handleNavigatePages('failedStudents')}
           bgMenu={bgMenu === 'failedStudents' ? 'active' : ''}
         >
-          <XCircle size={45} weight="bold" />
-          <p>
+          <XCircle size={30} weight="bold" />
+          <TextRegular color="text" weight={700}>
             Alunos <br /> Reprovados
-          </p>
+          </TextRegular>
         </LinkMenu>
         <LinkMenu
           onClick={() => handleNavigatePages('dudaPendents')}
           bgMenu={bgMenu === 'dudaPendents' ? 'active' : ''}
         >
-          <CheckSquareOffset size={45} weight="bold" />
-          <p>
+          <CheckSquareOffset size={30} weight="bold" />
+          <TextRegular color="text" weight={700}>
             Alunos com <br /> Duda Pendentes
-          </p>
+          </TextRegular>
         </LinkMenu>
       </nav>
     </ContainerMenu>

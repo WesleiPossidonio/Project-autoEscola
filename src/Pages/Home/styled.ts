@@ -30,7 +30,7 @@ export const ContainerData = styled.div`
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
 `
 
@@ -48,7 +48,7 @@ export const ContainerDataUser = styled.div`
 
 export const ContentDataUser = styled.div`
   width: 35rem;
-  height: 10rem;
+  height: 13rem;
 
   padding: 2rem;
 
@@ -76,7 +76,9 @@ export const ContentDataUser = styled.div`
 export const DataUserContainer = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5rem;
 
   div {
   }

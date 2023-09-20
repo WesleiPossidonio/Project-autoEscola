@@ -54,9 +54,11 @@ export const ContainerMenu = styled.div<ContainerProps>`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5;
     transform: scale(0.7);
     transition: 0.7s;
+
+    padding-top: 2rem;
   }
 
   ${({ isVisible }) =>
@@ -93,11 +95,6 @@ export const LinkMenu = styled.div<LinkMenuProps>`
   color: ${({ theme }) => theme.colors['base-text']};
 
   cursor: pointer;
-
-  > p {
-    font-size: 1.3rem;
-    font-weight: 700;
-  }
 
   background-color: ${({ theme, bgMenu }) =>
     bgMenu && theme.colors['bg-header-hover']};

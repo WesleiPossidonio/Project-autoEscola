@@ -17,6 +17,8 @@ import {
 
 export const Home = () => {
   const { userDataLogin } = useUser()
+
+  console.log(userDataLogin)
   return (
     <ContainerHome>
       <TitleText size="m" weight={600}>
@@ -43,9 +45,6 @@ export const Home = () => {
                 </TitleText>
               </div>
             </DataUserContainer>
-          </ContentDataUser>
-
-          <ContentDataUser>
             <DataUserContainer>
               <div>
                 <TextRegular weight={600}>Cargo</TextRegular>

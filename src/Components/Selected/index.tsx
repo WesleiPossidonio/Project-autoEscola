@@ -22,7 +22,7 @@ export function BasicSelect() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={listSelectedCar}
+          defaultValue={listSelectedCar}
           label="Selecione o veículo"
           onChange={handleChange}
         >

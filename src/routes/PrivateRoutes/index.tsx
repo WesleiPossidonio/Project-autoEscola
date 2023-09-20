@@ -18,7 +18,10 @@ export const PrivateRoutes = () => {
         setMenuIsVisible={setMenuIsVisible}
         menuIsVisible={menuIsVisible}
       />
-      <MenuMobile menuIsVisible={menuIsVisible} />
+      <MenuMobile
+        menuIsVisible={menuIsVisible}
+        setMenuIsVisible={setMenuIsVisible}
+      />
 
       <ContentMain>
         <HeaderMenu />
