@@ -28,9 +28,13 @@ export const Header = ({ setMenuIsVisible, menuIsVisible }: HeaderProps) => {
     localStorage.removeItem('cartorio:userData1.0')
     navigate('/login')
   }
+
+  const handleNavigateTohome = () => {
+    navigate('/')
+  }
   return (
     <ContainerHeader>
-      <ImageLogo src={Logo} />
+      <ImageLogo src={Logo} onClick={() => handleNavigateTohome()} />
 
       <ContentUser>
         <div>
