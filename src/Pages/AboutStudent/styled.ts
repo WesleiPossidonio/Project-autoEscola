@@ -17,7 +17,6 @@ export const ContainerPage = styled.section`
   right: 0;
 
   padding: 5rem 2rem;
-  overflow-y: scroll;
 
   background-color: ${({ theme }) => theme.colors['bg-main']};
 
@@ -28,6 +27,21 @@ export const ContainerPage = styled.section`
   @media (max-width: 1023px) {
     width: 100%;
     padding: 2rem;
+    font-size: 1.5rem;
+
+    > h1 {
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding: 4rem 1rem;
+    position: relative;
+    top: 0;
+
+    > h1 {
+      font-size: 1.5rem;
+    }
   }
 `
 
@@ -40,24 +54,29 @@ export const HeaderContainer = styled.div`
   padding: 1rem 5rem;
 
   @media (max-width: 1023px) {
-    padding: 3rem 2rem;
+    padding: 2rem 1rem;
     gap: 3rem;
   }
 
-  @media (max-width: 1023px) {
-    padding: 2rem 1rem;
-    gap: 3rem;
+  @media (max-width: 600px) {
+    display: none;
   }
 `
 
 export const ContainerStudent = styled.div`
   width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
+
   margin-top: 4rem;
+
+  @media (max-width: 600px) {
+    margin-top: 2rem;
+  }
 `
 
 export const ContentDataStudent = styled.div`
@@ -70,10 +89,19 @@ export const ContentDataStudent = styled.div`
   @media (max-width: 1023px) {
     justify-content: space-around;
   }
+
   @media (max-width: 767px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
   }
 `
 
