@@ -36,7 +36,7 @@ export const ContainerPage = styled.section`
 
   @media (max-width: 767px) {
     padding: 4rem 1rem;
-    position: relative;
+    position: static;
     top: 0;
 
     > h1 {
@@ -230,6 +230,13 @@ export const ContainerForm = styled.form`
 
   @media (max-width: 1500px) {
     width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    button {
+      margin-top: 2rem;
+      width: 100%;
+    }
   }
 `
 export const ContentInput = styled.div`
