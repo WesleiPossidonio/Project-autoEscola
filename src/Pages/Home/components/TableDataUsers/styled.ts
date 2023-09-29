@@ -23,6 +23,15 @@ export const ListRequerimentTable = styled(TableContainer)`
   @media (max-width: 1023px) {
     width: 100% !important;
   }
+
+  @media (max-width: 700px) {
+    .table {
+      th {
+        text-align: center;
+        padding: 0.75rem;
+      }
+    }
+  }
 `
 
 export const TableHeader2 = muiStyled(TableCell)({

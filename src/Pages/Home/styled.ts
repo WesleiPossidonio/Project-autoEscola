@@ -30,7 +30,7 @@ export const ContainerData = styled.div`
 
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 2rem;
 `
 
@@ -48,7 +48,7 @@ export const ContainerDataUser = styled.div`
 
 export const ContentDataUser = styled.div`
   width: 35rem;
-  height: 13rem;
+  height: max-content;
 
   padding: 2rem;
 
@@ -76,9 +76,10 @@ export const ContentDataUser = styled.div`
 export const DataUserContainer = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  gap: 5rem;
+  align-items: flex-start;
+  gap: 1rem;
 
   div {
   }
@@ -115,7 +116,7 @@ export const ContainerCalendar = styled.div`
     background-color: ${({ theme }) => theme.colors['bg-home']};
 
     width: 21.875rem;
-    height: 23.125rem;
+    height: 19.125rem;
 
     border-radius: 10px;
 

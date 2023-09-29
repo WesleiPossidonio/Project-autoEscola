@@ -41,7 +41,7 @@ export const TableDataUsers = () => {
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
-            <TableRow>
+            <TableRow className="table">
               <TableHeader2>Nome do Usuário</TableHeader2>
               <TableHeader2>E-mail do Usuário</TableHeader2>
               <TableHeader2>Nº Telefone</TableHeader2>

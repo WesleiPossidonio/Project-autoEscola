@@ -44,8 +44,7 @@ export const Home = () => {
                   {userDataLogin.email}
                 </TitleText>
               </div>
-            </DataUserContainer>
-            <DataUserContainer>
+
               <div>
                 <TextRegular weight={600}>Cargo</TextRegular>
                 <TitleText size="sm" weight={600}>
