@@ -43,13 +43,27 @@ export const MenuMobile = ({ menuIsVisible, setMenuIsVisible }: MenuProps) => {
     data === 'MyData' && navigate('/')
 
     data === 'NewUser' && setDisplayMenu('NewUser')
+    data === 'exit' && setMenuIsVisible(false)
 
     setMenuIsVisible(false)
+  }
+
+  const handleGoOut = () => {
+    localStorage.removeItem('cartorio:userData1.0')
+    navigate('/login')
   }
 
   return (
     <ContainerMenu isVisible={menuIsVisible} displayMenu={displayMenu}>
       <nav>
+        <LinkMenu
+          onClick={() => handleGoOut()}
+          bgMenu={bgMenu === 'exit' ? 'active' : ''}
+        >
+          <TextRegular weight={700} color="red">
+            Sair
+          </TextRegular>
+        </LinkMenu>
         {userDataLogin.admin && (
           <Dialog.Root>
             <Dialog.Trigger asChild>

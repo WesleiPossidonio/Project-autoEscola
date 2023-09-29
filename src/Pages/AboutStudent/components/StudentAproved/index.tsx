@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import ImgError from '../../../../assets/imageError.svg'
 import { Button } from '../../../../Components/Button'
 import { TextRegular, TitleText } from '../../../../Components/typography'
@@ -18,6 +20,16 @@ interface StudentsDataProps {
 }
 
 export const StudentAproved = ({ dataStudent }: StudentsDataProps) => {
+  const navigate = useNavigate()
+
+  const handleNavigateToHome = () => {
+    navigate('/')
+  }
+
+  const handleNavigate = () => {
+    navigate('/alunos-aprovados')
+  }
+
   return (
     <ContainerPage>
       <TitleText size="l" weight={700}>
@@ -25,8 +37,10 @@ export const StudentAproved = ({ dataStudent }: StudentsDataProps) => {
       </TitleText>
       <HeaderContainer>
         <ContentButton>
-          <Button>Voltar</Button>
-          <Button>Voltar ao Inicio</Button>
+          <Button onClick={() => handleNavigate()}>Voltar</Button>
+          <Button onClick={() => handleNavigateToHome()}>
+            Voltar ao Inicio
+          </Button>
         </ContentButton>
       </HeaderContainer>
 

@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Controller, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import * as zod from 'zod'
 
 import ImgError from '../../../../assets/imageError.svg'
@@ -45,6 +46,7 @@ export const StudentFailed = ({ dataStudent }: StudentsDataProps) => {
   })
 
   const { updateTestStudents } = useDataStudent()
+  const navigate = useNavigate()
 
   const handlePassedTheTest = (data: updateStudentsFormInputs) => {
     const { passed_the_test } = data
@@ -68,6 +70,14 @@ export const StudentFailed = ({ dataStudent }: StudentsDataProps) => {
     reset()
   }
 
+  const handleNavigateToHome = () => {
+    navigate('/')
+  }
+
+  const handleNavigate = () => {
+    navigate('/alunos-reprovados')
+  }
+
   return (
     <ContainerPage>
       <TitleText size="l" weight={700}>
@@ -76,8 +86,10 @@ export const StudentFailed = ({ dataStudent }: StudentsDataProps) => {
 
       <HeaderContainer>
         <ContentButton>
-          <Button>Voltar</Button>
-          <Button>Voltar ao Inicio</Button>
+          <Button onClick={() => handleNavigate()}>Voltar</Button>
+          <Button onClick={() => handleNavigateToHome()}>
+            Voltar ao Inicio
+          </Button>
         </ContentButton>
       </HeaderContainer>
 
