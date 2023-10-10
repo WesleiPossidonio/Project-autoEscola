@@ -5,6 +5,8 @@ import {
   useCallback,
   useState,
   useEffect,
+  Dispatch,
+  SetStateAction,
 } from 'react'
 import { toast } from 'react-toastify'
 
@@ -49,6 +51,7 @@ interface DataStudentsContextType {
   filteredSearchListStudent: (data: string) => void
   filterSelectedListCar: (data: string) => void
   setFilteredListSelectofDuda: (data: DataStudentsProps[]) => void
+  setMenuIsVisible: Dispatch<SetStateAction<boolean>>
   listStudentsWithDudaPaid: DataStudentsProps[]
   listStudentsWithDudaPendents: DataStudentsProps[]
   listFailedStudents: DataStudentsProps[]
@@ -58,6 +61,7 @@ interface DataStudentsContextType {
   filteredListSelectofDuda: DataStudentsProps[]
   searchListStudent: string
   listSelectedCar: string
+  menuIsVisible: boolean
 }
 
 interface DataStudentsProviderProps {
@@ -72,6 +76,8 @@ export const DataStudentsProvider = ({
   const [dataListStudents, setDataListStudent] = useState<DataStudentsProps[]>(
     [],
   )
+
+  const [menuIsVisible, setMenuIsVisible] = useState<boolean>(false)
 
   const [listAuthorizedStudents, setListlistAuthorizedStudents] = useState<
     DataStudentsProps[]
@@ -211,6 +217,7 @@ export const DataStudentsProvider = ({
         filterSelectedListCar,
         updateTestStudents,
         setFilteredListSelectofDuda,
+        setMenuIsVisible,
         listStudentsWithDudaPaid,
         listStudentsWithDudaPendents,
         listFailedStudents,
@@ -220,6 +227,7 @@ export const DataStudentsProvider = ({
         searchListStudent,
         listSelectedCar,
         filteredListSelectofDuda,
+        menuIsVisible,
       }}
     >
       {children}

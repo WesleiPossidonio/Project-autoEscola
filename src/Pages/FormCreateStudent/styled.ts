@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 
-export const ContainerCreatedStudents = styled.section`
-  width: 80%;
+interface ContainerCreatedStudentsProps {
+  menuIsVisible: boolean
+}
+
+export const ContainerCreatedStudents = styled.section<ContainerCreatedStudentsProps>`
+  width: ${({ menuIsVisible }) => (menuIsVisible === false ? '100%' : '80%')};
 
   position: fixed;
   top: 6rem;

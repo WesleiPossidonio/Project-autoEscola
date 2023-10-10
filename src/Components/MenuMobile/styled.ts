@@ -76,6 +76,10 @@ export const ContainerMenu = styled.div<ContainerProps>`
         transform: scale(1);
       }
     `}
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
 `
 
 interface LinkMenuProps {

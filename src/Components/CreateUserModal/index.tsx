@@ -63,8 +63,6 @@ export const CreateUserModal = ({ setDisplayMenu }: CreateUserModalProps) => {
       tel,
       cargo,
     })
-
-    console.log(isAdmin, admin, email, name, password)
     reset()
   }
 

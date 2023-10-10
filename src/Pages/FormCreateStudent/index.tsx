@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { Button } from '../../Components/Button'
 import { TitleText } from '../../Components/typography'
+import { useDataStudent } from '../../Hooks/useDataStudents'
 import { FormCreatedStudents } from './components/formCreatedNewStudents'
 import {
   ContainerCreatedStudents,
@@ -11,12 +12,13 @@ import {
 
 export const CreatedStudents = () => {
   const navigate = useNavigate()
+  const { menuIsVisible } = useDataStudent()
 
   const handleNavigateToHome = () => {
     navigate('/')
   }
   return (
-    <ContainerCreatedStudents>
+    <ContainerCreatedStudents menuIsVisible={menuIsVisible}>
       <HeaderContainer>
         <TitleText size="m" weight={600}>
           Autorizar Alunos

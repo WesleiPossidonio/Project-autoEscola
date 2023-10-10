@@ -6,7 +6,6 @@ export const ContainerMenu = styled.div`
   bottom: 0;
   left: 0;
   width: 20%;
-  height: 100vh;
 
   display: flex;
   flex-direction: column;
@@ -14,7 +13,9 @@ export const ContainerMenu = styled.div`
   justify-content: flex-start;
   gap: 1rem;
 
-  padding-top: 4rem;
+  padding-top: 1rem;
+
+  overflow-y: scroll;
 
   background-color: ${({ theme }) => theme.colors['bg-home']};
 
@@ -23,8 +24,29 @@ export const ContainerMenu = styled.div`
   }
 `
 
+export const ContainerUser = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  text-align: right;
+
+  padding: 0 1.5rem 1rem;
+
+  span {
+    color: red;
+    cursor: pointer;
+  }
+`
+
+export const Line = styled.div`
+  height: 2rem;
+  border: 1px solid #000;
+`
+
 interface LinkMenuProps {
-  bgMenu: string
+  bgMenu?: string
 }
 
 export const LinkMenu = styled.div<LinkMenuProps>`
@@ -33,16 +55,16 @@ export const LinkMenu = styled.div<LinkMenuProps>`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.8rem;
+  gap: 0.4rem;
 
-  padding: 1rem 2rem;
+  padding: 0.5rem 2.5rem;
 
   color: ${({ theme }) => theme.colors['base-text']};
 
   cursor: pointer;
 
   > p {
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 700;
   }
 

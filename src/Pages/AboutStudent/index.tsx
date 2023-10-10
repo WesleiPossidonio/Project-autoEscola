@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import { DataStudentsProps } from '../../contexts/DataSudentsContext'
+import { useDataStudent } from '../../Hooks/useDataStudents'
 import { AuthorizedStudent } from './components/AboutStudent'
 import { StudentAproved } from './components/StudentAproved'
 import { StudentDudaPaind } from './components/StudentDudaPaind'
@@ -23,6 +24,7 @@ export const AboutStudent = () => {
     useState<DataStudentsProps>()
 
   const { state } = useLocation() as unknown as LocationProps
+  const { menuIsVisible } = useDataStudent()
 
   useEffect(() => {
     if (state) {
@@ -53,7 +55,7 @@ export const AboutStudent = () => {
   }, [state])
 
   return (
-    <ContainerPage>
+    <ContainerPage menuIsVisible={menuIsVisible}>
       {(authorizedStudent && (
         <AuthorizedStudent dataStudent={authorizedStudent} />
       )) ||

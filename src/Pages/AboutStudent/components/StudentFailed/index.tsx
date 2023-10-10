@@ -45,7 +45,7 @@ export const StudentFailed = ({ dataStudent }: StudentsDataProps) => {
     resolver: zodResolver(updateStudentFormSchema),
   })
 
-  const { updateTestStudents } = useDataStudent()
+  const { updateTestStudents, menuIsVisible } = useDataStudent()
   const navigate = useNavigate()
 
   const handlePassedTheTest = (data: updateStudentsFormInputs) => {
@@ -79,7 +79,7 @@ export const StudentFailed = ({ dataStudent }: StudentsDataProps) => {
   }
 
   return (
-    <ContainerPage>
+    <ContainerPage menuIsVisible={menuIsVisible}>
       <TitleText size="l" weight={700}>
         Sobre o Aluno
       </TitleText>

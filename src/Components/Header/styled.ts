@@ -14,6 +14,10 @@ export const ContainerHeader = styled.header`
 
   background-color: ${({ theme }) => theme.colors['bg-home']};
 
+  svg {
+    cursor: pointer;
+  }
+
   .mobile {
     display: none;
   }
@@ -38,13 +42,6 @@ export const ContentUser = styled.div`
     cursor: pointer;
   }
 
-  > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
   @media (max-width: 767px) {
     > div {
       display: none;
@@ -54,26 +51,4 @@ export const ContentUser = styled.div`
 
 export const ImageLogo = styled.img`
   width: 8rem;
-`
-
-export const Line = styled.div`
-  height: 2rem;
-  border: 1px solid #000;
-`
-
-export const ContentLoginData = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  border: none;
-`
-
-export const ContainerLogin = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.2rem;
 `

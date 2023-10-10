@@ -1,7 +1,12 @@
 import styled from 'styled-components'
 
-export const ContainerHome = styled.section`
-  width: 80%;
+interface ContainerHomeProps {
+  menuIsVisible: boolean
+}
+
+export const ContainerHome = styled.section<ContainerHomeProps>`
+  width: ${({ menuIsVisible }) => (menuIsVisible === false ? '100%' : '80%')};
+  /* height: 100vh; */
   position: fixed;
   top: 6rem;
   bottom: 0;

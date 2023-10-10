@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 
-export const ContentMain = styled.main`
-  width: 100%;
+interface ContentMainProps {
+  menuIsVisible: boolean
+}
+
+export const ContentMain = styled.main<ContentMainProps>`
+  width: ${({ menuIsVisible }) => (menuIsVisible === true ? '100%' : '80%')};
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: scroll;
 
   @media (max-width: 1023px) {
     display: none;

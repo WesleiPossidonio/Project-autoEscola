@@ -7,8 +7,12 @@ interface InputProps {
   variant?: 'true' | 'false'
 }
 
-export const ContainerPage = styled.section`
-  width: 80%;
+interface ContainerPageProps {
+  menuIsVisible: boolean
+}
+
+export const ContainerPage = styled.section<ContainerPageProps>`
+  width: ${({ menuIsVisible }) => (menuIsVisible === false ? '100%' : '80%')};
   min-height: 100vh;
 
   position: fixed;

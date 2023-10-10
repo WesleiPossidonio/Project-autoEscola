@@ -3,6 +3,7 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar'
 import { ptBR } from 'date-fns/locale'
 
 import { TextRegular, TitleText } from '../../Components/typography'
+import { useDataStudent } from '../../Hooks/useDataStudents'
 import { useUser } from '../../Hooks/useUser'
 import { TableDataUsers } from './components/TableDataUsers'
 import {
@@ -17,10 +18,11 @@ import {
 
 export const Home = () => {
   const { userDataLogin } = useUser()
+  const { menuIsVisible } = useDataStudent()
 
   console.log(userDataLogin)
   return (
-    <ContainerHome>
+    <ContainerHome menuIsVisible={menuIsVisible}>
       <TitleText size="m" weight={600}>
         Dados do Usuário
       </TitleText>

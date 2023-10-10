@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { InputSearch } from '../../Components/InputSearch'
 import { BasicSelect } from '../../Components/Selected'
 import { TitleText } from '../../Components/typography'
+import { useDataStudent } from '../../Hooks/useDataStudents'
 import { TableApprovedStudents } from './components/TableDataAprovedStudents'
 import {
   Button,
@@ -15,12 +16,14 @@ import {
 export const AprovedStudentsPage = () => {
   const navigate = useNavigate()
 
+  const { menuIsVisible } = useDataStudent()
+
   const handleNavigateToHome = () => {
     navigate('/')
   }
 
   return (
-    <ContainerHome>
+    <ContainerHome menuIsVisible={menuIsVisible}>
       <TitleText size="m" weight={600}>
         Lista de Alunos <br /> Aprovados
       </TitleText>

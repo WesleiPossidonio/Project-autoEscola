@@ -8,24 +8,21 @@ import {
   UserFocus,
 } from '@phosphor-icons/react'
 import * as Dialog from '@radix-ui/react-dialog'
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import { useDataStudent } from '../../Hooks/useDataStudents'
 import { useUser } from '../../Hooks/useUser'
 import { CreateUserModal } from '../CreateUserModal'
 import { TextRegular } from '../typography'
 import { ContainerMenu, LinkMenu } from './styled'
 
-interface MenuProps {
-  menuIsVisible: boolean
-  setMenuIsVisible: Dispatch<SetStateAction<boolean>>
-}
-
-export const MenuMobile = ({ menuIsVisible, setMenuIsVisible }: MenuProps) => {
+export const MenuMobile = () => {
   const [bgMenu, setBgMenu] = useState('')
   const [displayMenu, setDisplayMenu] = useState('')
 
   const { userDataLogin } = useUser()
+  const { menuIsVisible, setMenuIsVisible } = useDataStudent()
 
   const navigate = useNavigate()
 

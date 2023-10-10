@@ -4,6 +4,7 @@ import ImgError from '../../../../assets/imageError.svg'
 import { Button } from '../../../../Components/Button'
 import { TextRegular, TitleText } from '../../../../Components/typography'
 import { DataStudentsProps } from '../../../../contexts/DataSudentsContext'
+import { useDataStudent } from '../../../../Hooks/useDataStudents'
 import {
   CartDataStudent,
   ContainerPage,
@@ -22,6 +23,8 @@ interface StudentsDataProps {
 export const StudentAproved = ({ dataStudent }: StudentsDataProps) => {
   const navigate = useNavigate()
 
+  const { menuIsVisible } = useDataStudent()
+
   const handleNavigateToHome = () => {
     navigate('/')
   }
@@ -31,7 +34,7 @@ export const StudentAproved = ({ dataStudent }: StudentsDataProps) => {
   }
 
   return (
-    <ContainerPage>
+    <ContainerPage menuIsVisible={menuIsVisible}>
       <TitleText size="l" weight={700}>
         Sobre o Aluno
       </TitleText>

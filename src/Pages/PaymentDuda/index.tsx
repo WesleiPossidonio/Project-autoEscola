@@ -19,7 +19,8 @@ import {
 export const PaimentDuda = () => {
   const navigate = useNavigate()
 
-  const { dataListStudents, setFilteredListSelectofDuda } = useDataStudent()
+  const { dataListStudents, setFilteredListSelectofDuda, menuIsVisible } =
+    useDataStudent()
 
   const [listPaimentDuda, setListPaimentDuda] = useState('Pendente')
 
@@ -51,7 +52,7 @@ export const PaimentDuda = () => {
   }
 
   return (
-    <ContainerHome>
+    <ContainerHome menuIsVisible={menuIsVisible}>
       <TitleText size="m" weight={600}>
         Lista de Duda dos Alunos
       </TitleText>
